@@ -2,45 +2,52 @@ package com.cdac.flowflix.dto;
 
 public class LoginDTO {
 
-	private String token;
-	// private User user;
-	private String nameSurname;
-	private String messageInvalidUsernameOrPassword;
+    private String token;
 
-	public LoginDTO() {
+    private String userNameSurname;
 
-	}
+    private String messageInvalidUsernameOrPassword;
 
-	public LoginDTO(String token, String nameSurname, String messageInvalidUsernameOrPassword) {
-		super();
-		this.token = token;
-//		this.user = user;
-		this.nameSurname = nameSurname;
-		this.messageInvalidUsernameOrPassword = messageInvalidUsernameOrPassword;
-	}
+    public LoginDTO() {
+    }
 
-	public String getNameSurname() {
-		return nameSurname;
-	}
+    public LoginDTO(String token,
+                    String userNameSurname,
+                    String messageInvalidUsernameOrPassword) {
 
-	public void setNameSurname(String nameSurname) {
-		this.nameSurname = nameSurname;
-	}
+        this.token = token;
+        this.userNameSurname = userNameSurname;
+        this.messageInvalidUsernameOrPassword =
+                messageInvalidUsernameOrPassword;
 
-	public String getMessageInvalidUsernameOrPassword() {
-		return messageInvalidUsernameOrPassword;
-	}
+    }
 
-	public void setMessageInvalidUsernameOrPassword(String messageInvalidUsernameOrPassword) {
-		this.messageInvalidUsernameOrPassword = messageInvalidUsernameOrPassword;
-	}
+    public String getToken() {
+        return token;
+    }
 
-	public String getToken() {
-		return token;
-	}
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+    public String getUserNameSurname() {
+        return userNameSurname;
+    }
+
+    public void setUserNameSurname(String userNameSurname) {
+        this.userNameSurname = userNameSurname;
+    }
+
+    public String getMessageInvalidUsernameOrPassword() {
+        return messageInvalidUsernameOrPassword;
+    }
+
+    public void setMessageInvalidUsernameOrPassword(
+            String messageInvalidUsernameOrPassword) {
+
+        this.messageInvalidUsernameOrPassword =
+                messageInvalidUsernameOrPassword;
+
+    }
 
 }

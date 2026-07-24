@@ -1,10 +1,8 @@
 package com.cdac.flowflix.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,21 +13,37 @@ import com.cdac.flowflix.model.User;
 import com.cdac.flowflix.repository.UserRepository;
 
 @Service
-public class CustomUserDetailService implements UserDetailsService {
+public class CustomUserDetailService
+        implements UserDetailsService {
 
-	@Autowired
-	private UserRepository userRepository;
+    @Autowired
+    private UserRepository repository;
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
 
-		User user = userRepository.findByUsername(username);
+        User user =
+                repository.findByUsername(username);
 
-		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-		grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
+        if (user == null) {
 
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-				grantedAuthorities);
-	}
+            throw new UsernameNotFoundException(
+                    "User Not Found");
+
+        }
+
+        return new org.springframework.security.core.userdetails.User(
+
+                user.getUsername(),
+
+                user.getPassword(),
+
+                Collections.singletonList(
+
+                        new SimpleGrantedAuthority(
+                                user.getRole().toString())));
+
+    }
 
 }

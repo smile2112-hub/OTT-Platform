@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,31 +18,48 @@ public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long id;
+	private Long id;
+
 	private String name;
 	private String director;
 	private String description;
 	private String genre;
 	private String actors;
 	private String distributor;
+
 	private int year;
 	private int duration;
 
+	// OTT Files
+	private String poster;
+	private String banner;
+	private String video;
+	private String trailer;
+
+	private String videoSize;
+
+	// Statistics
+	private Long totalViews = 0L;
+
+	private Double rating = 0.0;
+
+	private boolean featured = false;
+
+	private boolean active = true;
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Projection> projections = new ArrayList<Projection>();
-	@Lob
-	// @Column(columnDefinition = "MEDIUMBLOB")
-	private String image;
-	private String imageName;
+	private List<Projection> projections = new ArrayList<>();
 
 	public Movie() {
 
 	}
 
 	public Movie(Long id, String name, String director, String description, String genre, String actors,
-			String distributor, int year, int duration, List<Projection> projections, String image) {
-		super();
+			String distributor, int year, int duration, String poster, String banner, String video,
+			String trailer, String videoSize, Long totalViews, Double rating,
+			boolean featured, boolean active, List<Projection> projections) {
+
 		this.id = id;
 		this.name = name;
 		this.director = director;
@@ -53,16 +69,16 @@ public class Movie {
 		this.distributor = distributor;
 		this.year = year;
 		this.duration = duration;
+		this.poster = poster;
+		this.banner = banner;
+		this.video = video;
+		this.trailer = trailer;
+		this.videoSize = videoSize;
+		this.totalViews = totalViews;
+		this.rating = rating;
+		this.featured = featured;
+		this.active = active;
 		this.projections = projections;
-		this.image = image;
-	}
-
-	public String getImageName() {
-		return imageName;
-	}
-
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
 	}
 
 	public Long getId() {
@@ -137,20 +153,84 @@ public class Movie {
 		this.duration = duration;
 	}
 
+	public String getPoster() {
+		return poster;
+	}
+
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+
+	public String getBanner() {
+		return banner;
+	}
+
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public String getTrailer() {
+		return trailer;
+	}
+
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+
+	public String getVideoSize() {
+		return videoSize;
+	}
+
+	public void setVideoSize(String videoSize) {
+		this.videoSize = videoSize;
+	}
+
+	public Long getTotalViews() {
+		return totalViews;
+	}
+
+	public void setTotalViews(Long totalViews) {
+		this.totalViews = totalViews;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public boolean isFeatured() {
+		return featured;
+	}
+
+	public void setFeatured(boolean featured) {
+		this.featured = featured;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	public List<Projection> getProjections() {
 		return projections;
 	}
 
 	public void setProjections(List<Projection> projections) {
 		this.projections = projections;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 }

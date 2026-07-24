@@ -20,38 +20,64 @@ import com.cdac.flowflix.service.CustomUserDetailService;
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
-	@Autowired
-	private JwtUtil jwtUtil;
-	@Autowired
-	private CustomUserDetailService customUserDetailService;
+    @Autowired
+    private JwtUtil jwtUtil;
 
-	@Override
-	protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
-			FilterChain filterChain) throws ServletException, IOException {
+    @Autowired
+    private CustomUserDetailService customUserDetailService;
 
-		String authorizationHeader = httpServletRequest.getHeader("Authorization");
+    @Override
+    protected void doFilterInternal(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            FilterChain filterChain)
+            throws ServletException, IOException {
 
-		String token = null;
-		String userName = null;
+        String header = request.getHeader("Authorization");
 
-		if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-			token = authorizationHeader.substring(7);
-			userName = jwtUtil.extractUsername(token);
-		}
+        String username = null;
 
-		if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+        String token = null;
 
-			UserDetails userDetails = customUserDetailService.loadUserByUsername(userName);
+        if (header != null &&
+                header.startsWith("Bearer ")) {
 
-			if (jwtUtil.validateToken(token, userDetails)) {
+            token = header.substring(7);
 
-				UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-						userDetails, null, userDetails.getAuthorities());
-				usernamePasswordAuthenticationToken
-						.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
-				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-			}
-		}
-		filterChain.doFilter(httpServletRequest, httpServletResponse);
-	}
+            username = jwtUtil.extractUsername(token);
+
+        }
+
+        if (username != null &&
+                SecurityContextHolder.getContext()
+                        .getAuthentication() == null) {
+
+            UserDetails userDetails =
+                    customUserDetailService
+                            .loadUserByUsername(username);
+
+            if (jwtUtil.validateToken(token, userDetails)) {
+
+                UsernamePasswordAuthenticationToken auth =
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails,
+                                null,
+                                userDetails.getAuthorities());
+
+                auth.setDetails(
+                        new WebAuthenticationDetailsSource()
+                                .buildDetails(request));
+
+                SecurityContextHolder
+                        .getContext()
+                        .setAuthentication(auth);
+
+            }
+
+        }
+
+        filterChain.doFilter(request, response);
+
+    }
+
 }

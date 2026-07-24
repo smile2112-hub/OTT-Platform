@@ -5,23 +5,41 @@ import com.cdac.flowflix.model.Movie;
 public class MovieDTO {
 
 	private Long id;
+
 	private String name;
 	private String director;
 	private String description;
 	private String genre;
 	private String actors;
 	private String distributor;
+
 	private int year;
 	private int duration;
-	private String imageName;
-	private String image;
+
+	// OTT Files
+	private String poster;
+	private String banner;
+	private String video;
+	private String trailer;
+
+	private String videoSize;
+
+	// Statistics
+	private Long totalViews;
+
+	private Double rating;
+
+	private boolean featured;
+
+	private boolean active;
 
 	public MovieDTO() {
 
 	}
 
 	public MovieDTO(Movie movie) {
-		this.id = movie.id;
+
+		this.id = movie.getId();
 		this.name = movie.getName();
 		this.director = movie.getDirector();
 		this.description = movie.getDescription();
@@ -30,24 +48,21 @@ public class MovieDTO {
 		this.distributor = movie.getDistributor();
 		this.year = movie.getYear();
 		this.duration = movie.getDuration();
-		this.imageName = movie.getImageName();
-		this.image = movie.getImage();
-	}
 
-	public String getImage() {
-		return image;
-	}
+		this.poster = movie.getPoster();
+		this.banner = movie.getBanner();
+		this.video = movie.getVideo();
+		this.trailer = movie.getTrailer();
 
-	public void setImage(String image) {
-		this.image = image;
-	}
+		this.videoSize = movie.getVideoSize();
 
-	public String getImageName() {
-		return imageName;
-	}
+		this.totalViews = movie.getTotalViews();
 
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+		this.rating = movie.getRating();
+
+		this.featured = movie.isFeatured();
+
+		this.active = movie.isActive();
 	}
 
 	public Long getId() {
@@ -121,4 +136,77 @@ public class MovieDTO {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
+
+	public String getPoster() {
+		return poster;
+	}
+
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+
+	public String getBanner() {
+		return banner;
+	}
+
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public String getTrailer() {
+		return trailer;
+	}
+
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+
+	public String getVideoSize() {
+		return videoSize;
+	}
+
+	public void setVideoSize(String videoSize) {
+		this.videoSize = videoSize;
+	}
+
+	public Long getTotalViews() {
+		return totalViews;
+	}
+
+	public void setTotalViews(Long totalViews) {
+		this.totalViews = totalViews;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public boolean isFeatured() {
+		return featured;
+	}
+
+	public void setFeatured(boolean featured) {
+		this.featured = featured;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 }

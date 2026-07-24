@@ -23,56 +23,74 @@ import com.cdac.flowflix.service.CustomUserDetailService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private JwtFilter jwtFilter;
+    @Autowired
+    private JwtFilter jwtFilter;
 
-	@Autowired
-	private CustomUserDetailService customUserDetailService;
+    @Autowired
+    private CustomUserDetailService customUserDetailService;
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(customUserDetailService);
-	}
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)
+            throws Exception {
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
-	}
+        auth.userDetailsService(customUserDetailService);
 
-	@Bean(name = BeanIds.AUTHENTICATION_MANAGER)
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+    }
 
-	
-	  @Override protected void configure(HttpSecurity http) throws Exception {
-	  http.cors().disable();
-	  http.csrf().disable().authorizeRequests().anyRequest().permitAll(); }
-	 
-//	"/api/finalOrder/getOrderItemsByFinalOrderId/{id}", "/api/finalOrder/getAllActiveFinalOrders","/api/finalOrder/getFinalOrderById/{id}", "/api/finalOrder/createFinalOrder", "/api/meal/getAllMeals", "/api/mealType/getAllMealTypes", "/api/user/getCurrentUser", "/api/user/getAllEmployees"
-	//@Override
-	/*
-	 * , "/api/user/getAllUsers", , , "/api/finalOrder/getAllActiveFinalOrders" ,
-	 * "/api/user/getCurrentUser", "/api/user/getAllEmployees"
-	 */
-	  
-	  
-	  
-//to run auth uncomment this following code
-	  
-	  
-	  
-	  
-//	protected void configure(HttpSecurity http) throws Exception {
-//		http.cors().disable();
-//		http.csrf().disable().authorizeRequests()
-//				.antMatchers("/api/login", "/api/user/registration", "/api/welcomeTestIgnore")
-//
-//				.permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated().and()
-//				.exceptionHandling().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-//		;
-//	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+
+        return NoOpPasswordEncoder.getInstance();
+
+    }
+
+    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+    @Override
+    public AuthenticationManager authenticationManagerBean()
+            throws Exception {
+
+        return super.authenticationManagerBean();
+
+    }
+
+    @Override
+    protected void configure(HttpSecurity http)
+            throws Exception {
+
+        http.cors().disable();
+
+        http.csrf().disable()
+
+                .authorizeRequests()
+
+                .antMatchers(
+                        "/api/login",
+                        "/api/user/registration",
+                        "/api/movie/featured",
+                        "/api/movie/latest",
+                        "/api/movie/trending",
+                        "/api/movie/search/**",
+                        "/api/home/**")
+
+                .permitAll()
+
+                .antMatchers(HttpMethod.OPTIONS, "/**")
+
+                .permitAll()
+
+                .anyRequest()
+
+                .authenticated()
+
+                .and()
+
+                .sessionManagement()
+
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.addFilterBefore(jwtFilter,
+                UsernamePasswordAuthenticationFilter.class);
+
+    }
 
 }

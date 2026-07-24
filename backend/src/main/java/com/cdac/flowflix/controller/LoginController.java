@@ -1,47 +1,36 @@
 package com.cdac.flowflix.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.cdac.flowflix.dto.LoginDTO;
 import com.cdac.flowflix.model.Login;
 import com.cdac.flowflix.service.UserService;
 
-@CrossOrigin("*")
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping("/api")
+@CrossOrigin("*")
 public class LoginController {
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@RequestMapping(value = "/welcomeTest", method = RequestMethod.GET)
-	public String welcome() {
-		return "test!!!";
-	}
+    @PostMapping("/login")
+    public ResponseEntity<LoginDTO> login(
+            @RequestBody Login login) {
 
-	@RequestMapping(value = "/welcomeTestIgnore", method = RequestMethod.GET)
-	public String welcomeIgnore() {
-		return "testIgnore!!!";
-	}
+        return ResponseEntity.ok(
+                userService.generateToken(login));
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<LoginDTO> generateToken(@RequestBody Login login) throws Exception {
-		LoginDTO loginDTO = userService.generateToken(login);
-		return new ResponseEntity<LoginDTO>(loginDTO, HttpStatus.OK);
-	}
+    }
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public ResponseEntity<String> Logout() throws Exception {
-		String responseToClient = userService.isValidLogout();
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
 
-		return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
-	}
+        return ResponseEntity.ok(
+                userService.isValidLogout());
+
+    }
+
 }
