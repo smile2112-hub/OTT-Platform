@@ -1,88 +1,172 @@
 package com.cdac.flowflix.controller;
 
 import java.io.IOException;
-import java.util.Base64;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cdac.flowflix.dto.MovieDTO;
-import com.cdac.flowflix.dto.UserDTO;
 import com.cdac.flowflix.model.Movie;
 import com.cdac.flowflix.service.MovieService;
+import com.cdac.flowflix.storage.StorageService;
 import com.google.gson.Gson;
 
-@CrossOrigin("*")
 @RestController
-@RequestMapping(value = "api/movie")
+@RequestMapping("/api/movie")
+@CrossOrigin("*")
 public class MovieController {
 
-	@Autowired
-	MovieService movieService;
+    @Autowired
+    private MovieService movieService;
 
-	@RequestMapping(value = "/createMovie", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public ResponseEntity<String> createMeal(@RequestParam("image") MultipartFile image, HttpServletRequest request) {
+    @Autowired
+    private StorageService storageService;
 
-		System.out.println(request.getParameter("movie"));
-		Gson g = new Gson();
-		Movie movie = g.fromJson(request.getParameter("movie"), Movie.class);
+    @PostMapping(value="/createMovie",
+            consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> createMovie(
 
-		String responseToClient;
-		responseToClient = movieService.isValidInput(movie);
-		if (responseToClient.equals("valid")) {
+            @RequestParam("poster") MultipartFile poster,
 
-			try {
-				movie.setImage(Base64.getEncoder().encodeToString(image.getBytes()));
-				movie.setImageName(image.getOriginalFilename());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			// meal.setImage(Base64.getEncoder().encodeToString(file.getBytes()))
-			movieService.save(movie);
-			return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
+            @RequestParam(value="banner",required=false)
+            MultipartFile banner,
 
-		} else {
-			responseToClient = "invalid";
-			return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
-		}
-	}
+            @RequestParam("video")
+            MultipartFile video,
 
-	@RequestMapping(value = "/updateMovie", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> editMeal(@RequestBody Movie movie) {
-		String response = movieService.editMovie(movie);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
-	}
+            @RequestParam(value="trailer",required=false)
+            MultipartFile trailer,
 
-	@RequestMapping(value = "/getAllMovies", method = RequestMethod.GET)
-	public ResponseEntity<List<MovieDTO>> getAllMovies() {
-		List<MovieDTO> moviesDTO = movieService.findAll();
-		return new ResponseEntity<List<MovieDTO>>(moviesDTO, HttpStatus.OK);
-	}
+            @RequestParam("movie")
+            String movieJson) throws IOException {
 
-	@RequestMapping(value = "/deleteMovie/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<String> delete(@PathVariable Long id) {
-		String responseToClient;
-		Movie movie = movieService.findOne(id);
-		if (movie == null) {
-			responseToClient = "fail";
-			return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
-		}
-		movieService.delete(movie);
-		responseToClient = "success";
-		return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
-	}
+        Gson gson=new Gson();
+
+        Movie movie=gson.fromJson(movieJson,Movie.class);
+
+        movie.setPoster(storageService.savePoster(poster));
+
+        if(banner!=null)
+            movie.setBanner(storageService.saveBanner(banner));
+
+        movie.setVideo(storageService.saveVideo(video));
+
+        if(trailer!=null)
+            movie.setTrailer(storageService.saveVideo(trailer));
+
+        movie.setVideoSize((video.getSize()/1024/1024)+" MB");
+
+        movieService.save(movie);
+
+        return ResponseEntity.ok("Movie Uploaded Successfully");
+    }
+
+    @GetMapping("/getAllMovies")
+    public List<MovieDTO> getAllMovies(){
+        return movieService.findAll();
+    }
+
+    @DeleteMapping("/deleteMovie/{id}")
+    public ResponseEntity<String> deleteMovie(@PathVariable Long id){
+
+        Movie movie=movieService.findOne(id);
+
+        if(movie==null){
+            return ResponseEntity.ok("Movie Not Found");
+        }
+
+        movieService.delete(movie);
+
+        return ResponseEntity.ok("Deleted Successfully");
+    }
+
+    @GetMapping("/featured")
+    public List<MovieDTO> featuredMovies(){
+        return movieService.getFeaturedMovies();
+    }
+
+    @GetMapping("/latest")
+    public List<MovieDTO> latestMovies(){
+        return movieService.getLatestMovies();
+    }
+
+    @GetMapping("/trending")
+    public List<MovieDTO> trendingMovies(){
+        return movieService.getTrendingMovies();
+    }
+
+    @GetMapping("/genre/{genre}")
+    public List<MovieDTO> genreMovies(@PathVariable String genre){
+        return movieService.getMoviesByGenre(genre);
+    }
+
+    @PutMapping("/activate/{id}")
+    public ResponseEntity<String> activateMovie(@PathVariable Long id){
+
+        if(movieService.findOne(id)==null)
+            return ResponseEntity.ok("Movie Not Found");
+
+        movieService.activateMovie(id);
+
+        return ResponseEntity.ok("Movie Activated");
+    }
+
+    @PutMapping("/deactivate/{id}")
+    public ResponseEntity<String> deactivateMovie(@PathVariable Long id){
+
+        if(movieService.findOne(id)==null)
+            return ResponseEntity.ok("Movie Not Found");
+
+        movieService.deactivateMovie(id);
+
+        return ResponseEntity.ok("Movie Deactivated");
+    }
+
+    @PutMapping("/feature/{id}")
+    public ResponseEntity<String> featureMovie(@PathVariable Long id){
+
+        if(movieService.findOne(id)==null)
+            return ResponseEntity.ok("Movie Not Found");
+
+        movieService.featureMovie(id);
+
+        return ResponseEntity.ok("Movie Featured");
+    }
+
+    @PutMapping("/unfeature/{id}")
+    public ResponseEntity<String> unFeatureMovie(@PathVariable Long id){
+
+        if(movieService.findOne(id)==null)
+            return ResponseEntity.ok("Movie Not Found");
+
+        movieService.unFeatureMovie(id);
+
+        return ResponseEntity.ok("Movie Unfeatured");
+    }
+    @GetMapping("/search/{keyword}")
+    public List<MovieDTO> searchMovies(@PathVariable String keyword){
+
+        return movieService.searchMovies(keyword);
+
+    }
+
+    @GetMapping("/active")
+    public List<MovieDTO> activeMovies(){
+
+        return movieService.getActiveMovies();
+
+    }
+    
+    @GetMapping("/recommend/{movieId}")
+    public List<MovieDTO> recommendMovies(
+            @PathVariable Long movieId){
+
+        return movieService.recommendMovies(movieId);
+
+    }
 
 }

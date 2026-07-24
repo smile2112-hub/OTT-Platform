@@ -17,46 +17,83 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Service
 public class JwtUtil {
 
-	private String secret = "javatechie";
+    private final String SECRET = "FLOWFLIX_SECRET_KEY";
 
-	public String extractUsername(String token) {
-		return extractClaim(token, Claims::getSubject);
-	}
+    public String extractUsername(String token) {
 
-	public Date extractExpiration(String token) {
-		return extractClaim(token, Claims::getExpiration);
-	}
+        return extractClaim(token, Claims::getSubject);
 
-	public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-		final Claims claims = extractAllClaims(token);
-		return claimsResolver.apply(claims);
-	}
+    }
 
-	private Claims extractAllClaims(String token) {
-		return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-	}
+    public Date extractExpiration(String token) {
 
-	private Boolean isTokenExpired(String token) {
-		return extractExpiration(token).before(new Date());
-	}
+        return extractClaim(token, Claims::getExpiration);
 
-	public String generateToken(JWTLogin jwtDetails) {
-		Map<String, Object> claims = new HashMap<>();
-		return createToken(claims, jwtDetails);
-	}
+    }
 
-	private String createToken(Map<String, Object> claims, JWTLogin jwtDetails) {
+    public <T> T extractClaim(
+            String token,
+            Function<Claims, T> claimsResolver) {
 
-		return Jwts.builder()
+        Claims claims = extractAllClaims(token);
 
-				.claim("role", jwtDetails.getRole()).setSubject(jwtDetails.getUsername())
-				.setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-				.signWith(SignatureAlgorithm.HS256, secret).compact();
-	}
+        return claimsResolver.apply(claims);
 
-	public Boolean validateToken(String token, UserDetails userDetails) {
-		final String username = extractUsername(token);
-		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
-	}
+    }
+
+    private Claims extractAllClaims(String token) {
+
+        return Jwts.parser()
+
+                .setSigningKey(SECRET)
+
+                .parseClaimsJws(token)
+
+                .getBody();
+
+    }
+
+    private boolean isExpired(String token) {
+
+        return extractExpiration(token)
+
+                .before(new Date());
+
+    }
+
+    public String generateToken(JWTLogin jwtLogin) {
+
+        Map<String, Object> claims = new HashMap<>();
+
+        claims.put("role", jwtLogin.getRole());
+
+        return Jwts.builder()
+
+                .setClaims(claims)
+
+                .setSubject(jwtLogin.getUsername())
+
+                .setIssuedAt(new Date())
+
+                .setExpiration(
+                        new Date(System.currentTimeMillis()
+                                + 1000 * 60 * 60 * 10))
+
+                .signWith(SignatureAlgorithm.HS256, SECRET)
+
+                .compact();
+
+    }
+
+    public boolean validateToken(
+            String token,
+            UserDetails userDetails) {
+
+        String username = extractUsername(token);
+
+        return username.equals(userDetails.getUsername())
+                && !isExpired(token);
+
+    }
+
 }
