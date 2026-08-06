@@ -1,27 +1,42 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import PrivateRoute from './util/PrivateRoute';
+import Navbar from './components/navbar/Navbar';
+import Home from './pages/Home';
+import Movies from './pages/Movies';
+import MovieDetails from './pages/MovieDetails';
+import Watchlist from './pages/Watchlist';
+import MyRatings from './pages/MyRatings';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import NotFound from './pages/NotFound';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginComponent from "./components/login/LoginComponent";
-import RegistrationComponent from "./components/registration/RegistrationComponent";
-import ListUserComponent from "./components/user/ListUserComponent";
-import ListMovieComponent from "./components/movie/ListMovieComponent";
-import NavbarComponent from './components/navbar/NavbarComponent';
+
 function App() {
   return (
-    <Router>
-      {/* <NavbarComponent/> */}
-      <div className='main-container'>
-        <NavbarComponent/>
-        <div className="router-components">
+    <AuthProvider>
+      <Router>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<LoginComponent/>}></Route>
-          <Route path="/login" element={<LoginComponent/>}></Route>
-          <Route path="/registration" element={<RegistrationComponent/>}></Route>
-          <Route path="/users" element={<ListUserComponent/>}></Route>
-          <Route path="/movies" element={<ListMovieComponent/>}></Route>
+          {/* Public routes */}
+          <Route path="/login"    element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* Protected routes */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/"           element={<Home />} />
+            <Route path="/movies"     element={<Movies />} />
+            <Route path="/movies/:id" element={<MovieDetails />} />
+            <Route path="/watchlist"  element={<Watchlist />} />
+            <Route path="/my-ratings" element={<MyRatings />} />
+          </Route>
+
+          {/* Fallback */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
-        </div>
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 

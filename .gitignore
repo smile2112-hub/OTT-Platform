@@ -22,3 +22,7 @@ backend/.idea/
 
 ### Uploaded runtime files ###
 backend/uploads/
+
+### Root IDE/build artefacts ###
+/.project
+/target/
