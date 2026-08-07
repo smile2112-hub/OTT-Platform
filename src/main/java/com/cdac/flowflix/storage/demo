@@ -1,0 +1,19 @@
+flowflix
+│
+├── uploads
+│   ├── posters
+│   │   ├── 1750000000000_movie.jpg
+│   │
+│   ├── banners
+│   │   ├── 1750000000000_banner.jpg
+│   │
+│   ├── videos
+│   │   ├── 1750000000000_movie.mp4
+│   │
+│   └── trailers
+│       ├── 1750000000000_trailer.mp4
+│
+├── src
+│   └── main
+│
+└── pom.xml
