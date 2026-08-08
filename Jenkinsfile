@@ -1,31 +1,33 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+        dockerTool 'Docker'
+    }
+
     environment {
-        DOCKERHUB_USER   = 'aakanksha0499'
-        BACKEND_IMAGE    = "${DOCKERHUB_USER}/flowflix-backend"
-        IMAGE_TAG        = "${BUILD_NUMBER}"
-        DOCKERHUB_CREDS  = 'dockerhub-credentials'
+        DOCKERHUB_USER  = 'aakanksha0499'
+        BACKEND_IMAGE   = "${DOCKERHUB_USER}/flowflix-backend"
+        IMAGE_TAG       = "${BUILD_NUMBER}"
+        DOCKERHUB_CREDS = 'dockerhub-credentials'
     }
 
     stages {
 
-        // ── 1. Checkout ─────────────────────────────────
         stage('Checkout') {
             steps {
                 checkout scm
-                echo "Building branch: ${env.BRANCH_NAME}, build #${BUILD_NUMBER}"
+                echo "Build #${BUILD_NUMBER}"
             }
         }
 
-        // ── 2. Build Backend JAR ─────────────────────────
         stage('Build Backend') {
             steps {
                 sh 'mvn clean package -DskipTests -B'
             }
         }
 
-        // ── 3. Test ──────────────────────────────────────
         stage('Test') {
             steps {
                 sh 'mvn test -B'
@@ -38,33 +40,28 @@ pipeline {
             }
         }
 
-        // ── 4. Build Docker Image ────────────────────────
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t ${BACKEND_IMAGE}:${IMAGE_TAG} -t ${BACKEND_IMAGE}:latest ."
-            }
-        }
-
-        // ── 5. Push to Docker Hub ────────────────────────
-        stage('Push Image') {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: "${DOCKERHUB_CREDS}",
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-                    sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
-                    sh "docker push ${BACKEND_IMAGE}:${IMAGE_TAG}"
-                    sh "docker push ${BACKEND_IMAGE}:latest"
+                script {
+                    docker.build("${BACKEND_IMAGE}:${IMAGE_TAG}")
+                    docker.build("${BACKEND_IMAGE}:latest")
                 }
             }
         }
 
-        // ── 6. Deploy to Kubernetes ──────────────────────
-        stage('Deploy') {
-            when {
-                branch 'main'
+        stage('Push Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKERHUB_CREDS}") {
+                        docker.image("${BACKEND_IMAGE}:${IMAGE_TAG}").push()
+                        docker.image("${BACKEND_IMAGE}:latest").push()
+                    }
+                }
             }
+        }
+
+        stage('Deploy') {
+            when { branch 'main' }
             steps {
                 echo "Deploy stage - configure kubectl here when Kubernetes is ready"
             }
@@ -72,14 +69,7 @@ pipeline {
     }
 
     post {
-        success {
-            echo "Pipeline succeeded! Backend image tagged: ${IMAGE_TAG}"
-        }
-        failure {
-            echo "Pipeline failed. Check the logs above."
-        }
-        always {
-            sh "docker rmi ${BACKEND_IMAGE}:${IMAGE_TAG} || true"
-        }
+        success { echo "Pipeline succeeded! Image: ${IMAGE_TAG}" }
+        failure { echo "Pipeline failed." }
     }
 }
