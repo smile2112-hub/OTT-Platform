@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.repository;
 
 import java.util.List;
@@ -31,6 +36,9 @@ public interface WatchlistRepository
             Movie movie);
 
     // ==========================================
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     // CHECK MOVIE EXISTS
     // ==========================================
 

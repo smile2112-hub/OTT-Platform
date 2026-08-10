@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.service;
 
 import java.util.List;
@@ -16,6 +21,9 @@ public interface WatchHistoryService {
 
     // ==========================
     // Complete Watch History
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     // ==========================
 
     List<WatchHistoryDTO> getWatchHistory();

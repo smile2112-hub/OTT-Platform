@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import java.util.ArrayList;
@@ -322,6 +327,9 @@ public class UserServiceImpl implements UserService {
     // ==========================================
     // DEACTIVATE USER
     // ==========================================
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     @Override
     public String deactivateUser(Long id) {

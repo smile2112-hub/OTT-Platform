@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,6 +18,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.cdac.flowflix.dto.MovieDTO;
 import com.cdac.flowflix.service.MovieService;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 import com.cdac.flowflix.serviceImpl.GenreServiceImpl;
 
 @ExtendWith(MockitoExtension.class)

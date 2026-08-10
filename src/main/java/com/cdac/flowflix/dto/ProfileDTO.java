@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.dto;
 
 import com.cdac.flowflix.model.Role;
@@ -57,6 +62,9 @@ public class ProfileDTO {
 
     public void setUsername(String username) {
         this.username = username;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     }
 
     // ==========================================

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.dto;
 
 import java.time.LocalDateTime;
@@ -128,6 +133,9 @@ public class PaymentDTO {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     public String getUsername() {
         return username;

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.controller;
 
 import java.util.List;
@@ -23,6 +28,9 @@ public class WatchProgressController {
             @RequestParam Long totalSeconds) {
 
         watchProgressService.saveProgress(
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
                 movieId,
                 watchedSeconds,
                 totalSeconds);

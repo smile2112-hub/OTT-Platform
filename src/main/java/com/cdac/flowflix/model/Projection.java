@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.model;
 
 import java.util.Date;
@@ -55,6 +60,9 @@ public class Projection {
         this.movie = movie;
         this.hall = hall;
         this.user = user;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
         this.date = date;
         this.price = price;
         this.projectionType = projectionType;

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import java.util.ArrayList;
@@ -64,6 +69,9 @@ public class WatchProgressServiceImpl implements WatchProgressService{
         progress.setLastWatched(System.currentTimeMillis());
 
         if(progress.getProgress()>95)
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
             progress.setCompleted(true);
 
         repository.save(progress);

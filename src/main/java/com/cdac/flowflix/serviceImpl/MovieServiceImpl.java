@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import java.util.List;
@@ -327,6 +332,9 @@ public class MovieServiceImpl implements MovieService {
             movie.setFeatured(false);
 
             movieRepository.save(movie);
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 
         }
 

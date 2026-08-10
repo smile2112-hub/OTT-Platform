@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.storage;
 
 import java.io.IOException;
@@ -87,6 +92,9 @@ public class StorageServiceImpl implements StorageService {
     // ==========================================
     // GET TRAILER
     // ==========================================
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 
     @Override
     public byte[] getTrailer(String filename) throws IOException {

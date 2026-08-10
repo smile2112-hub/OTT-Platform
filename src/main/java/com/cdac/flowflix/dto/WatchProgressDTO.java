@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.dto;
 
 import com.cdac.flowflix.model.WatchProgress;
@@ -40,6 +45,9 @@ public class WatchProgressDTO {
     public void setMovieId(Long movieId) {
         this.movieId = movieId;
     }
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     public String getMovieName() {
         return movieName;

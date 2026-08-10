@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import java.util.List;
@@ -7,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.cdac.flowflix.dto.MovieDTO;
 import com.cdac.flowflix.service.BannerService;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 import com.cdac.flowflix.service.MovieService;
 
 @Service

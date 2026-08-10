@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.model;
 
 import javax.persistence.Entity;
@@ -29,6 +34,9 @@ public class ContinueWatching {
         this.id = id;
         this.username = username;
         this.movieId = movieId;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
         this.progress = progress;
     }
 

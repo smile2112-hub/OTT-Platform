@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,6 +28,9 @@ class WatchHistoryControllerTest {
     private WatchHistoryController controller;
 
     @Mock
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     private WatchHistoryService watchHistoryService;
 
     @Test

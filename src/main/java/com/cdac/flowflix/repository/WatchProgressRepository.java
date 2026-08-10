@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.repository;
 
 import java.util.List;
@@ -9,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cdac.flowflix.model.Movie;
 import com.cdac.flowflix.model.User;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 import com.cdac.flowflix.model.WatchProgress;
 
 @Repository

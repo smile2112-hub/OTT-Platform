@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import java.time.LocalDate;
@@ -188,6 +193,9 @@ public class PaymentServiceImpl implements PaymentService {
 
             // find most recent pending payment for this user's subscriptions
             List<Payment> payments = paymentRepository.findBySubscriptionUser(user);
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
             Payment target = null;
 

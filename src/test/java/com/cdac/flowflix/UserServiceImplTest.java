@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -95,6 +100,9 @@ class UserServiceImplTest {
         user.setPassword("secret");
 
         when(passwordEncoder.encode("secret")).thenReturn("encoded-secret");
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
         when(userRepository.save(any(User.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         User saved = userService.save(user);

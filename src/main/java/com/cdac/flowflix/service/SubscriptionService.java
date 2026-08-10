@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.service;
 
 import java.util.List;
@@ -24,6 +29,9 @@ public interface SubscriptionService {
 
     // ==========================================
     // SUBSCRIPTION MANAGEMENT
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     // ==========================================
 
     String purchaseSubscription(SubscriptionPlan plan);

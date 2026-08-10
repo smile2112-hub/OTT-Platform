@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.model;
 
 import javax.persistence.Entity;
@@ -16,6 +21,9 @@ public class Genre {
 
     public Genre() {
     }
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 
     public Genre(Long id, String name) {
         this.id = id;

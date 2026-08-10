@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.dto;
 
 import java.util.List;
@@ -143,6 +148,9 @@ public class AdminDashboardDTO {
         return totalFavorites;
 
     }
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     public void setTotalFavorites(Long totalFavorites) {
 

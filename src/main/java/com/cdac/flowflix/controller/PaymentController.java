@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.controller;
 
 import java.util.List;
@@ -58,6 +63,9 @@ public class PaymentController {
             @PathVariable String any) {
 
         return ResponseEntity.ok(
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
             paymentService.verifyAny(any));
 
         }

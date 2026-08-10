@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.config;
 
 import java.nio.file.Path;
@@ -17,6 +22,9 @@ public class FileStorageConfig implements WebMvcConfigurer {
         registry.addResourceHandler(
                 "/uploads/posters/**"
         ).addResourceLocations(
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
                 "file:uploads/posters/"
         );
 

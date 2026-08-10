@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -115,6 +120,9 @@ public class FavoriteServiceImpl implements FavoriteService {
 
     }
     // ==========================
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     // GET MY FAVORITES
     // ==========================
 

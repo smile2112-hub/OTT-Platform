@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +12,9 @@ import org.springframework.stereotype.Component;
 import com.cdac.flowflix.service.UserService;
 
 @Component
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 public class StartupRunner implements CommandLineRunner {
 
     @Autowired

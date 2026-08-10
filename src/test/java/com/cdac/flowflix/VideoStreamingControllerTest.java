@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +32,9 @@ class VideoStreamingControllerTest {
     private VideoStreamingController controller;
 
     @Mock
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     private VideoService videoService;
 
     @Test

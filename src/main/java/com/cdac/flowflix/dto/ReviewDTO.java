@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.dto;
 
 import java.time.LocalDateTime;
@@ -55,6 +60,9 @@ public class ReviewDTO {
     public Long getReviewId() {
         return reviewId;
     }
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 
     public void setReviewId(Long reviewId) {
         this.reviewId = reviewId;

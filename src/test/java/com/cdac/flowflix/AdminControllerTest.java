@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,6 +49,9 @@ class AdminControllerTest {
 
     @Test
     void shouldReturnDashboardAndUsers() {
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
         AdminDashboardDTO dashboardDTO = mock(AdminDashboardDTO.class);
         UserDTO userDTO = mock(UserDTO.class);
         when(adminService.getDashboard()).thenReturn(dashboardDTO);

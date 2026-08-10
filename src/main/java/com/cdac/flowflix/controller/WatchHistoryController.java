@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.controller;
 
 import java.util.List;
@@ -34,6 +39,9 @@ public class WatchHistoryController {
     // ==========================
     // COMPLETE WATCH HISTORY
     // ==========================
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     @GetMapping
     public List<WatchHistoryDTO> getWatchHistory() {

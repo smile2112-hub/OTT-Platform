@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,6 +37,9 @@ class VideoControllerTest {
     @Test
     void shouldReturnNotFoundWhenMovieMissing() {
         when(movieService.findOne(1L)).thenReturn(null);
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
         ResponseEntity<InputStreamResource> response = controller.streamVideo(1L, null);
 

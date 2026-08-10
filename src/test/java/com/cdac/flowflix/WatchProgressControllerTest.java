@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,6 +23,9 @@ import com.cdac.flowflix.service.WatchProgressService;
 
 @ExtendWith(MockitoExtension.class)
 class WatchProgressControllerTest {
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     @InjectMocks
     private WatchProgressController controller;

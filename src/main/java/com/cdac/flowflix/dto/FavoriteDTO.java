@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.dto;
 
 import com.cdac.flowflix.model.Favorite;
@@ -66,6 +71,9 @@ public class FavoriteDTO {
     public void setFavoriteId(Long favoriteId) {
         this.favoriteId = favoriteId;
     }
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     public Long getMovieId() {
         return movieId;

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.controller;
 
 import java.util.List;
@@ -123,6 +128,9 @@ public class AdminController {
     }
 
     @PutMapping("/movie/deactivate/{id}")
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     public ResponseEntity<String> deactivateMovie(
             @PathVariable Long id) {
 

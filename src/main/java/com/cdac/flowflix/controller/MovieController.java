@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.controller;
 
 import java.io.IOException;
@@ -397,6 +402,9 @@ public class MovieController {
     public ResponseEntity<List<MovieDTO>>
             genreMovies(
                     @PathVariable String genre) {
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 
         return ResponseEntity.ok(
                 movieService.getMoviesByGenre(

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,6 +41,9 @@ class MovieControllerTest {
     @Test
     void shouldCreateMovieSuccessfully() throws IOException {
         MultipartFile poster = new MockMultipartFile("poster", "poster.png", "image/png", "content".getBytes());
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
         MultipartFile banner = new MockMultipartFile("banner", "banner.png", "image/png", "content".getBytes());
         MultipartFile video = new MockMultipartFile("video", "video.mp4", "video/mp4", "content".getBytes());
         MultipartFile trailer = new MockMultipartFile("trailer", "trailer.mp4", "video/mp4", "content".getBytes());

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +17,9 @@ import com.cdac.flowflix.service.UserService;
 @RequestMapping("/api")
 @CrossOrigin("*")
 public class LoginController {
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
     @Autowired
     private UserService userService;

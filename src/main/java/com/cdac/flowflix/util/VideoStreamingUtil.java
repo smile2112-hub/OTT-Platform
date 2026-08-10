@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.util;
 
 import java.io.IOException;
@@ -17,6 +22,9 @@ public class VideoStreamingUtil {
             throws IOException {
 
         byte[] buffer = new byte[BUFFER_SIZE];
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
         file.seek(start);
 

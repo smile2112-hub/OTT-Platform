@@ -1,0 +1,10 @@
+target
+.git
+.gitignore
+*.md
+.mvn
+.settings
+.classpath
+.project
+uploads
+*.log

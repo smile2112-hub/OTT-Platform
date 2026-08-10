@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +67,9 @@ public class UserController {
         return ResponseEntity.ok(profile);
 
     }
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 
     // ==========================================
     // UPDATE PROFILE

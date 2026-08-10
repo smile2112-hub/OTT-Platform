@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.model;
 
 import java.util.ArrayList;
@@ -37,6 +42,9 @@ public class Hall {
 		this.name = name;
 		this.rowsHall = rowsHall;
 		this.columnsHall = columnsHall;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 		this.projections = projections;
 	}
 

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,6 +49,9 @@ class HistoryServiceImplTest {
         when(userService.getCurrentUser()).thenReturn(null);
 
         String response = historyService.saveHistory(1L, 10L, 100L);
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
         assertEquals("User Not Logged In", response);
     }

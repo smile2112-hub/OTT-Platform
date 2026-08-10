@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import java.io.File;
@@ -22,6 +27,9 @@ public class VideoServiceImpl implements VideoService {
         Movie movie =
                 movieRepository
                         .findById(movieId)
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
                         .orElse(null);
 
 

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.util;
 
 import java.io.IOException;
@@ -32,6 +37,9 @@ public class FileUploadUtil {
         );
 
         Files.createDirectories(uploadPath);
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
         String originalFilename =
                 file.getOriginalFilename();

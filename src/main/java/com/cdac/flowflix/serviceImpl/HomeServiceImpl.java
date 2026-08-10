@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.serviceImpl;
 
 import java.util.List;
@@ -29,6 +34,9 @@ public class HomeServiceImpl implements HomeService {
                 movieService.getFeaturedMovies());
 
         dto.setTrendingMovies(
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
                 movieService.getTrendingMovies());
 
         dto.setLatestMovies(

@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -55,6 +60,9 @@ class SubscriptionServiceImplTest {
     void shouldUpgradeSubscriptionIfExists() {
         User user = new User();
         user.setId(1L);
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
         Subscription subscription = new Subscription();
         subscription.setUser(user);
 

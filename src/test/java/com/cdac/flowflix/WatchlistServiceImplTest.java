@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,6 +50,9 @@ class WatchlistServiceImplTest {
         when(userService.getCurrentUser()).thenReturn(user);
         when(movieRepository.findById(1L)).thenReturn(Optional.of(movie));
         when(watchlistRepository.existsByUserAndMovie(user, movie)).thenReturn(false);
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
 
         String response = watchlistService.addToWatchlist(1L);
 

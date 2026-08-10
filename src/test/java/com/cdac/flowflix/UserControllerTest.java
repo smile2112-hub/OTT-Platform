@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,6 +42,9 @@ class UserControllerTest {
 
         assertEquals(200, response.getStatusCodeValue());
         assertEquals("User Registered Successfully", response.getBody());
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
         assertEquals(Role.USER, user.getRole());
         assertFalse(user.isDeleted());
         verify(userService).save(user);

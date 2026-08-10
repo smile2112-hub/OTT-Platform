@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,6 +19,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.cdac.flowflix.controller.ContinueWatchingController;
 import com.cdac.flowflix.dto.WatchProgressDTO;
 import com.cdac.flowflix.service.WatchProgressService;
+
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
 
 @ExtendWith(MockitoExtension.class)
 class ContinueWatchingControllerTest {

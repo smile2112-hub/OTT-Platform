@@ -1,3 +1,8 @@
+/**
+ * Author:  Mahesh Ganesh Kajale
+ * Email:   maheshkajale2112@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
 package com.cdac.flowflix.dto;
 
 import java.time.LocalDateTime;
@@ -87,6 +92,9 @@ public class HistoryDTO {
 
     public Long getMovieId() {
         return movieId;
+
+// © FlowFlix OTT Platform | Author: Mahesh Ganesh Kajale <maheshkajale2112@gmail.com> | Unauthorized use prohibited.
+
     }
 
     public void setMovieId(Long movieId) {
