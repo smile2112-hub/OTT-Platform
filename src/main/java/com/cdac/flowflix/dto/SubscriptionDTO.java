@@ -1,8 +1,3 @@
-/**
- * Author:  Mahesh Ganesh Kajale
- * Email:   maheshkajale2112@gmail.com
- * Project: FlowFlix OTT Platform
- */
 package com.cdac.flowflix.dto;
 
 import java.time.LocalDate;
