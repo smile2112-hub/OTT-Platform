@@ -1,0 +1,69 @@
+# Authors:  Aakanksha Ashok Hedau  <aakanksha0499@gmail.com>
+#           Mahesh Ganesh Kajale   <maheshkajale2112@gmail.com>
+# Project:  FlowFlix OTT Platform
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flowflix-backend
+  labels:
+    app: flowflix-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flowflix-backend
+  template:
+    metadata:
+      labels:
+        app: flowflix-backend
+    spec:
+      containers:
+        - name: backend
+          image: aakanksha0499/flowflix-backend:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://db:3306/cinemaDB?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: flowflix-secrets
+                  key: mysql-root-password
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: flowflix-secrets
+                  key: jwt-secret
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8081
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8081
+            initialDelaySeconds: 60
+            periodSeconds: 15
+          volumeMounts:
+            - name: uploads
+              mountPath: /app/uploads
+      volumes:
+        - name: uploads
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: flowflix-backend
+  ports:
+    - port: 8081
+      targetPort: 8081

@@ -1,0 +1,34 @@
+/**
+ * Author:  Aakanksha Ashok Hedau
+ * Email:   aakanksha0499@gmail.com
+ * Project: FlowFlix OTT Platform
+ */
+import React from "react";
+import { Navigate } from "react-router-dom";
+
+const AdminRoute = ({ children }) => {
+
+    const token = localStorage.getItem("token");
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!token) {
+
+
+// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
+
+        return <Navigate to="/login" replace />;
+
+    }
+
+    if (!user || user.role !== "ADMIN") {
+
+        return <Navigate to="/" replace />;
+
+    }
+
+    return children;
+
+};
+
+export default AdminRoute;

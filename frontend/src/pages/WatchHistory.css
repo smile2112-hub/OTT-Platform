@@ -1,0 +1,293 @@
+.history-page {
+
+    min-height: 100vh;
+
+    background: #141414;
+
+    color: white;
+
+    padding: 40px 5%;
+
+    box-sizing: border-box;
+
+}
+
+
+.history-container {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+}
+
+
+.history-container h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.history-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(220px, 1fr)
+        );
+
+    gap: 25px;
+
+}
+
+
+.history-card {
+
+    background: #1f1f1f;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+
+.history-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.history-image-link {
+
+    position: relative;
+
+    display: block;
+
+}
+
+
+.history-image {
+
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+.progress-container {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 5px;
+
+    background: #555;
+
+}
+
+
+.progress-bar {
+
+    height: 100%;
+
+    background: #e50914;
+
+}
+
+
+.history-content {
+
+    padding: 15px;
+
+}
+
+
+.history-content h3 {
+
+    margin: 0 0 8px;
+
+    font-size: 18px;
+
+}
+
+
+.history-content p {
+
+    color: #aaa;
+
+    margin: 0 0 15px;
+
+}
+
+
+.history-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.continue-button {
+
+    background: #e50914;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 8px 13px;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+}
+
+
+.remove-button {
+
+    background: #333;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 13px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+}
+
+
+.remove-button:hover {
+
+    background: #444;
+
+}
+
+
+.empty-history {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+}
+
+
+.empty-history h2 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.empty-history p {
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+
+}
+
+
+.browse-button,
+.history-login {
+
+    display: inline-block;
+
+    background: #e50914;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 22px;
+
+    border-radius: 5px;
+
+}
+
+
+.history-page > h2 {
+
+    text-align: center;
+
+}
+
+
+.history-login {
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 20px auto;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .history-page {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .history-container h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .history-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+    .history-image {
+
+        height: 220px;
+
+    }
+
+
+    .history-actions {
+
+        flex-direction: column;
+
+    }
+
+}

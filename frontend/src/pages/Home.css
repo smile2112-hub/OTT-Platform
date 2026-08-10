@@ -1,0 +1,288 @@
+/* ============================================
+   PAGE
+============================================ */
+
+.home-page {
+    min-height: 100vh;
+    background: #141414;
+    color: #fff;
+}
+
+/* ============================================
+   HERO
+============================================ */
+
+.home-hero {
+    min-height: 420px;
+    background-image:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.home-hero-content {
+    max-width: 650px;
+}
+
+.home-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.home-hero-sub {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 28px;
+}
+
+.home-hero-btn {
+    display: inline-block;
+    background: #e50914;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.home-hero-btn:hover {
+    background: #b80710;
+    color: #fff;
+}
+
+/* ============================================
+   SECTIONS WRAPPER
+============================================ */
+
+.home-sections {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 5% 60px;
+}
+
+.movie-section {
+    margin-bottom: 50px;
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+/* ============================================
+   MOVIE GRID
+============================================ */
+
+.home-movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* ============================================
+   MOVIE CARD  — same dark style as Favorites
+============================================ */
+
+.home-movie-card {
+    background: #1a1a2e;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #2a2a3e;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(229, 9, 20, 0.3);
+    border-color: #e50914;
+}
+
+/* ── Poster ── */
+
+.home-card-poster-link {
+    display: block;
+    text-decoration: none;
+}
+
+.home-poster-wrap {
+    position: relative;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+}
+
+.home-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.home-movie-card:hover .home-poster-img {
+    transform: scale(1.05);
+}
+
+/* ── Body ── */
+
+.home-card-body {
+    padding: 16px;
+    background: #1a1a2e;
+    color: #fff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.home-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.home-card-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.home-badge-genre {
+    background: #2a2a3e;
+    color: #ccc;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.home-badge-rating {
+    background: #2a2a3e;
+    color: #e0b030;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ── Buttons ── */
+
+.home-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.home-btn-watch {
+    flex: 1;
+    background: #e50914;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.home-btn-watch:hover {
+    background: #b80710;
+    color: #fff;
+}
+
+.home-btn-details {
+    flex: 1;
+    background: transparent;
+    color: #aaa;
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #444;
+    transition: all 0.2s;
+}
+
+.home-btn-details:hover {
+    background: #2a2a3e;
+    color: #fff;
+    border-color: #666;
+}
+
+/* ============================================
+   LOADING
+============================================ */
+
+.home-loading {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141414;
+    color: #fff;
+    font-size: 22px;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 1100px) {
+    .home-movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .home-hero-title {
+        font-size: 2rem;
+    }
+
+    .home-sections {
+        padding: 30px 15px 50px;
+    }
+
+    .home-movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .home-poster-wrap {
+        height: 230px;
+    }
+}
+
+@media (max-width: 420px) {
+    .home-movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .home-card-title {
+        font-size: 13px;
+    }
+}

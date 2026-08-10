@@ -1,0 +1,955 @@
+body {
+
+    margin: 0;
+
+    background: #141414;
+
+    color: #ffffff;
+
+    font-family:
+        'Calibri', 'Calibri Light', Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+
+}
+
+a {
+
+    text-decoration: none;
+
+}
+
+button {
+
+    cursor: pointer;
+
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .dropdown-item {
+
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 20px;
+
+}
+
+.navbar-custom .navbar-brand {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.navbar-custom .nav-link {
+
+    margin-right: 1rem;
+
+}
+
+.navbar-custom .dropdown-menu {
+    font-size: 20px;
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+}
+
+.navbar-custom .dropdown-item {
+    color: #ddd;
+}
+
+.navbar-custom .dropdown-item:hover {
+    background: #2a2a3e;
+    color: #fff;
+}
+
+.navbar-custom .form-control {
+    font-size: 18px;
+}
+
+.navbar-custom .btn {
+    font-size: 18px;
+}
+
+.form-control {
+
+    border-radius: 0.35rem;
+
+    background: #1c1c1c;
+
+    color: #f4f4f4;
+
+    border: 1px solid #333;
+
+}
+
+.form-control:focus {
+
+    background: #1c1c1c;
+
+    color: #ffffff;
+
+    border-color: #e50914;
+
+    box-shadow: none;
+
+}
+
+.btn-danger {
+
+    border-radius: 0.35rem;
+
+}
+
+.card {
+
+    background: #121212;
+
+    border: 1px solid #272727;
+
+    border-radius: 1rem;
+
+    overflow: hidden;
+
+}
+
+.card .card-img-top {
+
+    border-top-left-radius: 1rem;
+
+    border-top-right-radius: 1rem;
+
+}
+
+.card-body,
+.card-footer {
+
+    background: #121212;
+
+}
+
+.card h5,
+.card p,
+.card span {
+
+    color: #f1f1f1;
+
+}
+
+.btn {
+
+    border-radius: 0.35rem;
+
+}
+
+footer {
+
+    background: #090909;
+
+    color: #d1d1d1;
+
+}
+
+footer hr {
+
+    border-color: rgba(255,255,255,0.1);
+
+}
+
+.container-fluid {
+
+    width: 100%;
+
+    padding:
+        0
+        30px;
+
+}
+
+.app-shell {
+
+    min-height: 100vh;
+
+    background: #141414;
+
+}
+
+.page-content {
+
+    min-height:
+        calc(100vh - 68px);
+
+}
+
+.loading-screen {
+
+    min-height: 60vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+}
+
+.loading-spinner {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 4px solid #444;
+
+    border-top-color: #e50914;
+
+    border-radius: 50%;
+
+    animation:
+        spin
+        0.8s
+        linear
+        infinite;
+
+}
+
+@keyframes spin {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+.navbar-custom {
+
+    min-height: 68px;
+
+    padding:
+        12px
+        28px;
+
+    background: #090909;
+
+    border-bottom:
+        1px solid #292929;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+.navbar-brand {
+
+    color: #e50914;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+.navbar-custom .navbar-links {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex: 1;
+
+    align-items: center;
+
+}
+
+.navbar-custom .navbar-links a {
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+}
+
+.navbar-custom .navbar-links a:hover {
+
+    color: #ffffff;
+
+}
+
+.navbar-custom .navbar-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 14px;
+
+}
+
+.small-button {
+
+    padding:
+        8px
+        14px;
+
+    border-radius: 6px;
+
+    border:
+        1px solid
+        transparent;
+
+}
+
+.danger-button {
+
+    background: #e50914;
+
+    color: #ffffff;
+
+    border: 0;
+
+    text-decoration: none;
+
+}
+
+.outline-button {
+
+    background: transparent;
+
+    color: #ffffff;
+
+    border:
+        1px solid
+        #777;
+
+    text-decoration: none;
+
+}
+
+@media(max-width:850px) {
+
+    .navbar-custom {
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+
+    }
+
+    .navbar-custom .navbar-links {
+
+        order: 3;
+
+        width: 100%;
+
+        overflow: auto;
+
+    }
+
+    .navbar-user span {
+
+        display: none;
+
+    }
+
+}
+
+.not-found,
+.center-page {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.auth-page {
+
+    min-height:
+        calc(100vh - 68px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 35px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2b2b2b,
+            #141414 55%
+        );
+
+}
+
+.auth-card {
+
+    width: 100%;
+
+    max-width: 440px;
+
+    background: #1f1f1f;
+
+    border:
+        1px solid
+        #333;
+
+    border-radius: 12px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.45);
+
+}
+
+.auth-logo {
+
+    text-align: center;
+
+    color: #e50914;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+}
+
+.auth-card h1 {
+
+    text-align: center;
+
+    margin:
+        0
+        0
+        8px;
+
+}
+
+.auth-card > p {
+
+    text-align: center;
+
+    color: #aaa;
+
+}
+
+.auth-card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+
+    margin-top: 25px;
+
+}
+
+.auth-card label,
+.upload-card label,
+.payment-card label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: #ddd;
+
+    font-size: 14px;
+
+}
+
+.auth-card input,
+.upload-card input,
+.upload-card textarea,
+.payment-card select {
+
+    padding: 12px;
+
+    border-radius: 6px;
+
+    border:
+        1px solid
+        #555;
+
+    background: #292929;
+
+    color: #ffffff;
+
+    outline: none;
+
+}
+
+.auth-button,
+.payment-card button,
+.upload-button {
+
+    padding: 13px;
+
+    border: 0;
+
+    border-radius: 6px;
+
+    background: #e50914;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+}
+
+.auth-error,
+.auth-success {
+
+    padding: 11px;
+
+    border-radius: 6px;
+
+    margin-top: 15px;
+
+}
+
+.auth-error {
+
+    background: #541919;
+
+    color: #ffbaba;
+
+}
+
+.auth-success {
+
+    background: #123d22;
+
+    color: #b8ffcb;
+
+}
+
+.auth-footer {
+
+    margin-top: 20px;
+
+}
+
+.auth-footer a {
+
+    color: #ff3b45;
+
+    font-weight: 700;
+
+}
+
+.player-page {
+
+    min-height: 100vh;
+
+    background: #050505;
+
+    color: #ffffff;
+
+    padding:
+        20px
+        5%
+        50px;
+
+}
+
+.player-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.player-top button {
+
+    background: #292929;
+
+    color: #ffffff;
+
+    border:
+        1px solid
+        #555;
+
+    padding:
+        9px
+        15px;
+
+    border-radius: 5px;
+
+}
+
+.main-video {
+
+    width: 100%;
+
+    max-height: 75vh;
+
+    background: #000;
+
+    display: block;
+
+    margin:
+        15px
+        auto;
+
+    border-radius: 8px;
+
+}
+
+.player-info {
+
+    max-width: 1000px;
+
+    margin:
+        25px
+        auto;
+
+    line-height: 1.7;
+
+    color: #ccc;
+
+}
+
+.player-info h1 {
+
+    color: #ffffff;
+
+}
+
+.plans-page,
+.payment-page,
+.admin-page,
+.upload-page {
+
+    min-height:
+        calc(100vh - 68px);
+
+    padding:
+        40px
+        6%;
+
+    background: #141414;
+
+}
+
+.plans-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(230px,1fr)
+        );
+
+    gap: 25px;
+
+    margin-top: 30px;
+
+}
+
+.plan-card,
+.payment-card,
+.upload-card,
+.stat-card {
+
+    background: #1e1e1e;
+
+    border:
+        1px solid
+        #333;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+}
+
+.plan-card .price {
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+    margin:
+        20px
+        0;
+
+}
+
+.plan-card small {
+
+    font-size: 13px;
+
+    color: #aaa;
+
+}
+
+.plan-card p {
+
+    color: #aaa;
+
+    min-height: 55px;
+
+}
+
+.plan-card button {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: 0;
+
+    border-radius: 6px;
+
+    background: #e50914;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+}
+
+.current-plan {
+
+    background: #252525;
+
+    padding: 14px;
+
+    border-radius: 6px;
+
+}
+
+.payment-card {
+
+    max-width: 500px;
+
+    margin:
+        20px
+        auto;
+
+}
+
+.payment-card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.admin-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px,1fr)
+        );
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+}
+
+.stat-card span {
+
+    display: block;
+
+    color: #aaa;
+
+}
+
+.stat-card strong {
+
+    display: block;
+
+    font-size: 30px;
+
+    margin-top: 10px;
+
+}
+
+.admin-table-wrap {
+
+    overflow: auto;
+
+    margin-top: 25px;
+
+}
+
+.admin-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #1d1d1d;
+
+}
+
+.admin-table th,
+.admin-table td {
+
+    padding: 12px;
+
+    border-bottom:
+        1px solid
+        #333;
+
+    text-align: left;
+
+}
+
+.admin-table img {
+
+    width: 55px;
+
+    height: 75px;
+
+    object-fit: cover;
+
+}
+
+.admin-table button {
+
+    margin: 3px;
+
+    padding:
+        7px
+        10px;
+
+    border:
+        1px solid
+        #555;
+
+    background: #292929;
+
+    color: #ffffff;
+
+    border-radius: 4px;
+
+}
+
+.admin-table .delete-button {
+
+    background: #7c1118;
+
+}
+
+.upload-card {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+}
+
+.upload-card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 16px;
+
+}
+
+.upload-card textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+.upload-button {
+
+    align-self: flex-start;
+
+}
+
+.muted {
+
+    color: #aaa;
+
+}
+
+@media(max-width:650px) {
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

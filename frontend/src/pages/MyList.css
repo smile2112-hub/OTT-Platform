@@ -1,0 +1,331 @@
+.my-list-page {
+
+    min-height: 100vh;
+
+    background: #141414;
+
+    color: white;
+
+    padding: 40px 5%;
+
+    box-sizing: border-box;
+
+}
+
+
+.my-list-container {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+}
+
+
+.my-list-container h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+    color: #fff;
+
+}
+
+
+.my-list-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(220px, 1fr)
+        );
+
+    gap: 25px;
+
+}
+
+
+.my-list-card {
+
+    background: #1a1a2e;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+    border: 1px solid #2a2a3e;
+
+}
+
+
+.my-list-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 30px rgba(229, 9, 20, 0.3);
+
+    border-color: #e50914;
+
+}
+
+
+.my-list-poster {
+
+    display: block;
+
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+}
+
+
+.my-list-content {
+
+    padding: 15px;
+
+    background: #1a1a2e;
+
+    color: #fff;
+
+}
+
+
+.my-list-content h3 {
+
+    margin: 0 0 10px;
+
+    font-size: 16px;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+}
+
+
+.movie-info {
+
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 15px;
+
+}
+
+
+.movie-info span {
+
+    background: #2a2a3e;
+
+    color: #e0b030;
+
+    padding: 4px 8px;
+
+    border-radius: 4px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+}
+
+
+.my-list-buttons {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.watch-button {
+
+    background: #e50914;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 8px 12px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: background 0.2s;
+
+}
+
+
+.watch-button:hover {
+
+    background: #b80710;
+
+    color: white;
+
+}
+
+
+.remove-button {
+
+    border: 1px solid #444;
+
+    background: transparent;
+
+    color: #aaa;
+
+    padding: 8px 12px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: all 0.2s;
+
+}
+
+
+.remove-button:hover {
+
+    background: #e50914;
+
+    color: white;
+
+    border-color: #e50914;
+
+}
+
+
+.empty-list {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+}
+
+
+.empty-list h2 {
+
+    margin-bottom: 10px;
+
+    color: #fff;
+
+}
+
+
+.empty-list p {
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+
+}
+
+
+.browse-button,
+.my-list-login {
+
+    display: inline-block;
+
+    background: #e50914;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 22px;
+
+    border-radius: 5px;
+
+}
+
+
+.my-list-message {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    font-size: 20px;
+
+    color: #fff;
+
+}
+
+
+.my-list-login {
+
+    margin-top: 10px;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .my-list-page {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .my-list-container h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .my-list-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+    .my-list-poster {
+
+        height: 230px;
+
+    }
+
+
+    .my-list-buttons {
+
+        flex-direction: column;
+
+    }
+
+}
