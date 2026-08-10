@@ -1,8 +1,3 @@
-/**
- * Author:  Aakanksha Ashok Hedau
- * Email:   aakanksha0499@gmail.com
- * Project: FlowFlix OTT Platform
- */
 import axios from "axios";
 
 const api = axios.create({

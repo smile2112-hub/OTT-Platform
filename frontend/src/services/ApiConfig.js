@@ -1,8 +1,3 @@
-/**
- * Author:  Aakanksha Ashok Hedau
- * Email:   aakanksha0499@gmail.com
- * Project: FlowFlix OTT Platform
- */
 const API_BASE_URL = "http://127.0.0.1:8081";
 
 export const IMAGE_BASE_URL =

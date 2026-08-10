@@ -1,8 +1,3 @@
-/**
- * Author:  Aakanksha Ashok Hedau
- * Email:   aakanksha0499@gmail.com
- * Project: FlowFlix OTT Platform
- */
 import React, { useEffect, useState } from "react";
 import { Badge, Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { FaPlay, FaStar } from "react-icons/fa";

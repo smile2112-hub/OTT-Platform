@@ -1,8 +1,3 @@
-/**
- * Author:  Aakanksha Ashok Hedau
- * Email:   aakanksha0499@gmail.com
- * Project: FlowFlix OTT Platform
- */
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";

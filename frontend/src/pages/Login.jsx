@@ -1,8 +1,3 @@
-/**
- * Author:  Aakanksha Ashok Hedau
- * Email:   aakanksha0499@gmail.com
- * Project: FlowFlix OTT Platform
- */
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 

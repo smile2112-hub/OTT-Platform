@@ -1,8 +1,3 @@
-/**
- * Author:  Aakanksha Ashok Hedau
- * Email:   aakanksha0499@gmail.com
- * Project: FlowFlix OTT Platform
- */
 import React, { createContext, useContext, useEffect, useState } from "react";
 import AuthService from "../services/AuthService";
 
