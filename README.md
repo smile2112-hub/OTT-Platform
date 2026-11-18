@@ -15,6 +15,35 @@ Users can browse and search movies, register and sign in, manage favorites and w
 - MySQL persistence and Spring Boot Actuator health endpoints
 - Docker Compose, Jenkins CI/CD, and Kubernetes deployment
 
+## Project Status
+
+FlowFlix is a complete full-stack academic project. Some repository structure and deployment cleanup is still required before it is production-ready:
+
+- Move or configure the Spring source under `backend/src/`, or configure Maven to use repository-root `src/`
+- Fix hardcoded frontend API URLs
+- Replace mock UPI payment handling with a real payment provider
+- Replace local and ephemeral media storage with persistent or object storage
+- Replace development secrets and committed Kubernetes Secret values
+
+## Architecture
+
+```text
+React Browser
+    |
+    | HTTP / REST
+    v
+Spring Boot API :8081
+    |                 |
+    | JDBC            | Local / persistent media storage
+    v                 v
+MySQL 8             uploads/
+
+Docker Compose or Kubernetes
+    |-- frontend (Nginx)
+    |-- backend (Spring Boot)
+    `-- mysql
+```
+
 ## Technology Stack
 
 | Area | Technology |
@@ -55,6 +84,13 @@ The Spring Java source is currently stored at the repository root in `src/`, whi
 - Jenkins for CI/CD
 - kubectl and access to a Kubernetes cluster
 
+## Quick Start
+
+```bash
+git clone https://github.com/smile2112-hub/OTT-Platform.git
+cd OTT-Platform
+```
+
 ## Configuration
 
 ### Backend environment variables
@@ -93,9 +129,12 @@ docker run --name flowflix-mysql \
 
 ### Backend
 
-After aligning or correcting the Maven source layout, use:
+The current source layout prevents the existing Maven wrapper and Dockerfile from compiling successfully: Java sources are in root `src/`, while `backend/pom.xml` declares the Maven project under `backend/`.
+
+After moving or configuring the source layout, start the backend from the Maven project directory:
 
 ```bash
+cd backend
 mvn spring-boot:run
 ```
 
