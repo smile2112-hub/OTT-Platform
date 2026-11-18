@@ -104,7 +104,6 @@ const NavigationBar = () => {
 
                                 <Nav.Link as={Link} to="/login">
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
 
                                     Login

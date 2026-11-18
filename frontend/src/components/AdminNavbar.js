@@ -90,7 +90,6 @@ const AdminNavbar = () => {
 
                         </li>
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
 
                         <li className="nav-item">

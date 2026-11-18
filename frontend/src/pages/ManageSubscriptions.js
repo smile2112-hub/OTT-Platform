@@ -156,7 +156,6 @@ const ManageSubscriptions = () => {
                                     <tr key={subscription.id}>
 
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                                         <td>
 

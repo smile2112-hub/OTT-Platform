@@ -22,7 +22,6 @@ const AdminDashboard = () => {
                             <h5>Users</h5>
                             <h2>0</h2>
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                         </Card.Body>
                     </Card>

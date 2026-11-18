@@ -57,7 +57,6 @@ const AuthService = {
 
         localStorage.removeItem("token");
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
         localStorage.removeItem("user");
         localStorage.removeItem("role");

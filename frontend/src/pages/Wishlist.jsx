@@ -60,7 +60,6 @@ const Wishlist = () => {
                         <Spinner animation="border" variant="danger" />
                         <p className="mt-3">Loading your watchlist...</p>
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                     </Col>
                 ) : items.length === 0 ? (

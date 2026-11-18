@@ -6,7 +6,6 @@ const ProtectedRoute = ({ children }) => {
     const token = localStorage.getItem("token");
 
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
     if (!token) {
 

@@ -106,7 +106,6 @@ const Login = () => {
                     </button>
 
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                 </form>
 

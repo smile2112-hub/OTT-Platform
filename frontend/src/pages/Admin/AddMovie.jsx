@@ -51,7 +51,6 @@ const AddMovie = () => {
                                 <Form.Group className="mb-3">
                                     <Form.Label>Genre</Form.Label>
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                                     <Form.Control
                                         name="genre"

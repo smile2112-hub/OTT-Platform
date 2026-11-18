@@ -53,7 +53,6 @@ const Home = () => {
                                     </div>
                                 </div>
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                             </Link>
                             <div className="home-card-body">

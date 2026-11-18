@@ -26,7 +26,6 @@ const PrivateRoute = ({ children }) => {
                     justifyContent: "center",
                     alignItems: "center",
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                     height: "100vh",
                     fontSize: "20px",

@@ -118,7 +118,6 @@ const Payment = () => {
                                                 {subscription?.plan || "Free"}
                                             </p>
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                                             <p className="mb-1">
                                                 <strong>Status:</strong>

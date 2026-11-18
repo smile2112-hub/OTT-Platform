@@ -109,7 +109,6 @@ const Subscription = () => {
                                         <Card.Body>
                                             <Card.Title>Current Plan</Card.Title>
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
                                             <p className="mb-1 text-white">
                                                 <strong>Plan:</strong>

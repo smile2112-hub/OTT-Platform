@@ -188,7 +188,6 @@ function WatchHistory() {
         <div className="history-page">
 
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
 
             <div className="history-container">

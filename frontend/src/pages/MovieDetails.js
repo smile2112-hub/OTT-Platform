@@ -384,7 +384,6 @@ const MovieDetails = () => {
 
                             Duration :
 
-// © FlowFlix OTT Platform | Author: Aakanksha Ashok Hedau <aakanksha0499@gmail.com> | Unauthorized use prohibited.
 
 
                             <span className="ms-2">

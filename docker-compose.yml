@@ -20,7 +20,7 @@ services:
   # ── Spring Boot Backend ─────────────────────
   backend:
     build:
-      context: ./OTT-Platform
+      context: ./backend
       dockerfile: Dockerfile
     restart: unless-stopped
     depends_on:
@@ -39,7 +39,7 @@ services:
   # ── React Frontend ───────────────────────────
   frontend:
     build:
-      context: ../front-end
+      context: ./frontend
       dockerfile: Dockerfile
     restart: unless-stopped
     depends_on:
